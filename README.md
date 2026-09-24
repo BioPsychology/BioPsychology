@@ -1,1 +1,1 @@
-# BioPsychology
+# BehavioralNeuroscience
