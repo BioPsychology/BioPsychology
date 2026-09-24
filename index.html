@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생물심리연구실 | Biopsychology Laboratory</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-brain text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight block">생물심리연구실</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Biopsychology Lab</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">연구실 소개</a>
+                <a href="#research" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">연구 분야</a>
+                <a href="#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">구성원</a>
+                <a href="#publications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">논문 및 출판물</a>
+                <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">오시는 길</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:scale-105 transition-all">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-base font-medium hover:text-brand-600">연구실 소개</a>
+            <a href="#research" class="block py-2 text-base font-medium hover:text-brand-600">연구 분야</a>
+            <a href="#team" class="block py-2 text-base font-medium hover:text-brand-600">구성원</a>
+            <a href="#publications" class="block py-2 text-base font-medium hover:text-brand-600">논문 및 출판물</a>
+            <a href="#contact" class="block py-2 text-base font-medium hover:text-brand-600">오시는 길</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-brand-500/30 to-teal-400/30 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 text-xs font-semibold mb-6 border border-brand-200 dark:border-brand-900">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>마음과 뇌의 생물학적 연결고리를 탐구합니다</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+                인간 행동과 뇌 신경망의 비밀을 밝히는 <span class="bg-gradient-to-r from-brand-600 to-teal-500 bg-clip-text text-transparent">생물심리연구실</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
+                우리는 신경과학, 행동 분석, 인지심리학의 융합 연구를 통해 인간의 지각, 감정, 그리고 의사결정의 근원을 과학적으로 탐구합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#research" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-0.5 text-center">
+                    연구 분야 살펴보기 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-200/70 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 font-medium transition-all text-center">
+                    입학 및 협력 문의
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Lab Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">About Our Lab</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">최첨단 장비와 창의적 사고로 마음의 지도를 그리다</h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        생물심리연구실(Biopsychology Lab)은 뇌 영상 기법(fMRI, EEG), 정밀 행동 측정 장비, 그리고 최신 데이터 과학 방법론을 결합하여 마음의 작동 원리를 연구합니다. 기초 과학의 깊이와 응용 심리학의 실용성을 동시에 추구하며, 글로벌 수준의 연구 성과를 창출하고 있습니다.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-brand-600 dark:text-brand-400">15+</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">SCI급 논문 발간</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-brand-600 dark:text-brand-400">12</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">전임 및 대학원 연구원</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-brand-600 dark:text-brand-400">5+</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">국가 연구 과제 수행</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
+                        <img src="https://placehold.co/800x600/1e293b/22c55e?text=Laboratory+Environment" alt="Lab Environment" class="w-full h-auto object-cover" onerror="this.src='https://via.placeholder.com/800x600'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas Section -->
+    <section id="research" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Research Areas</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">주요 연구 분야</h3>
+                <p class="text-slate-600 dark:text-slate-400">신경과학부터 인지심리까지, 다각도의 접근으로 생물심리학의 지평을 넓힙니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Research Card 1 -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">신경과학 (Neuroscience)</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        뇌 회로의 구조와 기능적 연결성을 분석하여 인지 및 감정 조절 과정에서의 신경학적 기반을 규명합니다.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>fMRI & EEG 기반 뇌파 분석</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>신경가소성 및 학습 메커니즘</li>
+                    </ul>
+                </div>
+
+                <!-- Research Card 2 -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">행동 분석 (Behavioral Analysis)</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        정밀한 행동 패러다임과 디지털 타이밍 측정을 통해 스트레스 반응 및 의사결정 패턴을 객관화합니다.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>스트레스 및 감정 반응 모델링</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>비디오 기반 행동 추적 분석</li>
+                    </ul>
+                </div>
+
+                <!-- Research Card 3 -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">인지심리 (Cognitive Psych)</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        주의 집중, 작업 기억, 그리고 정보 처리 과정에서 인간이 보이는 인지적 한계와 적응 전략을 연구합니다.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>작업 기억과 주의집중 제어</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i>의사결정 편향 및 휴리스틱</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Our Team</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">교수진 및 구성원</h3>
+                <p class="text-slate-600 dark:text-slate-400">열정적인 연구자들이 모여 미래를 향해 나아가고 있습니다.</p>
+            </div>
+
+            <!-- Professor / PI -->
+            <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-12 mb-12 shadow-sm flex flex-col md:flex-row items-center gap-8">
+                <div class="w-48 h-48 rounded-2xl overflow-hidden flex-shrink-0 shadow-md">
+                    <img src="https://placehold.co/400x400/1e293b/22c55e?text=Professor" alt="Professor" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400'">
+                </div>
+                <div>
+                    <div class="inline-block px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold mb-3">지도교수 / Lab Director</div>
+                    <h4 class="text-2xl font-bold mb-1">김생물 교수 <span class="text-base font-normal text-slate-500 dark:text-slate-400">Ph.D.</span></h4>
+                    <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mb-4">심리학과 / 신경과학 협동과정</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                        미국 스탠퍼드 대학교 박사후연구원 역임. 현재 한국생물심리학회 이사 및 본 연구실의 총괄 책임을 맡고 있으며, 뇌-행동 상호작용 메커니즘 규명에 주력하고 있습니다.
+                    </p>
+                    <div class="flex space-x-4 text-slate-600 dark:text-slate-400">
+                        <a href="#" class="hover:text-brand-600 transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+                        <a href="#" class="hover:text-brand-600 transition-colors"><i class="fa-solid fa-graduation-cap text-lg"></i></a>
+                        <a href="#" class="hover:text-brand-600 transition-colors"><i class="fa-brands fa-researchgate text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Members Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Member 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 shadow-sm">
+                        <img src="https://placehold.co/200x200/1e293b/22c55e?text=Ph.D" alt="Member" class="w-full h-full object-cover">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">박연구</h5>
+                    <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mb-2">박사과정 (Ph.D. Candidate)</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">fMRI 데이터 분석 및 신경 회로망 연구</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 shadow-sm">
+                        <img src="https://placehold.co/200x200/1e293b/22c55e?text=MS" alt="Member" class="w-full h-full object-cover">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">이지민</h5>
+                    <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mb-2">석사과정 (Graduate Student)</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">스트레스 반응 행동 패러다임 구축</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 shadow-sm">
+                        <img src="https://placehold.co/200x200/1e293b/22c55e?text=MS" alt="Member" class="w-full h-full object-cover">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">최심리</h5>
+                    <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mb-2">석사과정 (Graduate Student)</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">작업 기억과 인지 제어 실험 담당</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 shadow-sm">
+                        <img src="https://placehold.co/200x200/1e293b/22c55e?text=RA" alt="Member" class="w-full h-full object-cover">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">정지원</h5>
+                    <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mb-2">학부 연구원 (Undergrad RA)</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">실험 설문 및 데이터 수집 보조</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Publications</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">최근 논문 및 출판물</h3>
+                <p class="text-slate-600 dark:text-slate-400">우리 연구실이 세계적인 학술지에 게재한 주요 연구 성과입니다.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <!-- Publication Item 1 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold">Journal of Neuroscience, 2025</span>
+                        <span class="text-xs text-slate-400">SCI / IF 5.8</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Neural Correlates of Decision Making Under Acute Stressful Conditions</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Kim, S., Park, Y., & Lee, J.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">
+                        논문 원문 보기 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Publication Item 2 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold">Cognitive Psychology, 2024</span>
+                        <span class="text-xs text-slate-400">SCI / IF 4.2</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Working Memory Capacity and Attentional Control in Dynamic Environments</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Choi, H., Kim, S.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">
+                        논문 원문 보기 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Publication Item 3 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold">Biological Psychology, 2024</span>
+                        <span class="text-xs text-slate-400">SCI / IF 3.5</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Autonomic Nervous System Responses During Complex Problem Solving Tasks</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Park, Y., Lee, J., & Kim, S.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">
+                        논문 원문 보기 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-24 bg-white dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Contact Us</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">오시는 길 및 문의</h3>
+                <p class="text-slate-600 dark:text-slate-400">연구실 입학 상담, 공동 연구 협력 등 언제든지 환영합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info & Form -->
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg mb-4">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h5 class="font-bold mb-1">연구실 위치</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                서울특별시 심리구 대학로 123<br>자연과학관 405호 생물심리연구실
+                            </p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg mb-4">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <h5 class="font-bold mb-1">이메일 연락처</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                lab_biopsych@univ.ac.kr<br>Tel: 02-1234-5678
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Message Form -->
+                    <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <h4 class="text-xl font-bold mb-4">간편 문의하기</h4>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600 dark:text-slate-400">성함 / 소속</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600 dark:text-slate-400">이메일</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600 dark:text-slate-400">문의 내용</label>
+                                <textarea rows="3" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
+                                메시지 전송하기
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Map simulation -->
+                <div class="relative h-[450px] lg:h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-center bg-slate-200 dark:bg-slate-800">
+                    <div class="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div class="text-center p-6 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-600 text-white flex items-center justify-center text-3xl mx-auto mb-4 shadow-xl shadow-brand-500/40 animate-bounce">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1">생물심리연구실 위치</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
+                            자연과학관 405호 (대학로 지하철역 3번 출구 도보 5분)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-center text-sm text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center text-white text-xs">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <span class="font-bold text-slate-800 dark:text-slate-200">생물심리연구실 (Biopsychology Lab)</span>
+            </div>
+            <p>&copy; 2026 Biopsychology Laboratory. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Submission Handling (No alert box used as per requirement)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = '전송 완료되었습니다!';
+            submitBtn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+            submitBtn.classList.add('bg-emerald-600');
+            contactForm.reset();
+            setTimeout(() => {
+                submitBtn.innerText = originalText;
+                submitBtn.classList.remove('bg-emerald-600');
+                submitBtn.classList.add('bg-brand-600', 'hover:bg-brand-700');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
